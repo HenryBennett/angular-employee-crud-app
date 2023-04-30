@@ -1,0 +1,29 @@
+<div>
+  <h1>List of Employees</h1>
+  <button type="button" class="btn btn-dark" (click)="initNewEmployee()">Add New Employee</button>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Position</th>
+      <th scope="col">Location</th>
+      <th scope="col">Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>{{employee.firstName}}</td>
+      <td>{{employee.lastName}}</td>
+      <td>{{employee.position}}</td> 
+      <td>{{employee.location}}</td>
+      <td><button class="btn btn-primary" (click)="editEmployee(employee)">Edit</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<app-edit-employee 
+  [employee]="employeeToEdit" 
+  (employeesUpdated)="updateEmployeeList($event)"
+></app-edit-employee>

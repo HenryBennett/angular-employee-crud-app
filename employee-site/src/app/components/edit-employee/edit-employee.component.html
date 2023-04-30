@@ -1,0 +1,23 @@
+<div *ngIf="employee">
+    <h1>{{ employee.firstName + " " + employee.lastName }}</h1>
+    <h3>{{ employee.position}}</h3>
+    <h3>{{ employee.location}}</h3>
+    <div>
+        First Name:
+        <input [(ngModel)]="employee.firstName" placeholder="First Name">
+    </div>
+    <div>
+        Last Name:
+        <input [(ngModel)]="employee.lastName" placeholder="Last Name">
+    </div>
+    <div>
+        Position:
+        <input [(ngModel)]="employee.position" placeholder="Position">
+    </div>
+    <div>
+        Location:
+        <input [(ngModel)]="employee.location" placeholder="Location">
+    </div>
+    <button class="btn btn-success" (click)="updateEmployee(employee)" *ngIf="employee.id">Save</button>
+    <button class="btn btn-success" (click)="createEmployee(employee)" *ngIf="!employee.id">Create</button>
+</div>
